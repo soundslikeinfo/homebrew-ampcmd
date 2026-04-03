@@ -12,10 +12,8 @@ class Ampcmd < Formula
     prefix.install "src/ampcmd.zsh"
     prefix.install "src/ampcmd.plugin.zsh"
     prefix.install "src/ampcmd.bash"
+    prefix.install "src/ampcmd.fish"
     prefix.install "src/ampcmd-preview.sh"
-    
-    (share/"fish/vendor_functions.d").install "src/ampcmd.fish"
-    (share/"fish/vendor_functions.d").install "src/ampcmd-preview.sh"
   end
 
   def caveats
@@ -29,6 +27,7 @@ class Ampcmd < Formula
         source #{opt_prefix}/ampcmd.bash
       
       Fish (~/.config/fish/config.fish):
+        source #{opt_prefix}/ampcmd.fish
         bind \\ch 'ampcmd'
       
       Then: exec $SHELL
@@ -38,6 +37,6 @@ class Ampcmd < Formula
   test do
     assert_path_exists prefix/"ampcmd.plugin.zsh"
     assert_path_exists prefix/"ampcmd.bash"
-    assert_path_exists share/"fish/vendor_functions.d/ampcmd.fish"
+    assert_path_exists prefix/"ampcmd.fish"
   end
 end
