@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor swap files
+*.swp
+*.swo
+*~
+.*.swp
+
+# Temporary files
+*.tmp
+*.temp
+*.log
