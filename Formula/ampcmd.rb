@@ -1,22 +1,19 @@
 class Ampcmd < Formula
   desc "Chain multiple shell history commands using fuzzy selection"
   homepage "https://github.com/soundslikeinfo/ampcmd"
-  url "https://github.com/soundslikeinfo/ampcmd/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "ec136f6546e0230393aef4becdc29e9d52d2a6d7f7324087f16653fe724f06d8"
+  url "https://github.com/soundslikeinfo/ampcmd/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "7d009d8181c839f7b49facdedccbf786fa98fc2cd31417919f3f02ca7c42fed4"
   license "MIT"
   head "https://github.com/soundslikeinfo/ampcmd.git", branch: "main"
 
   depends_on "fzf"
 
   def install
-    # Install shell scripts to libexec (private)
     libexec.install "src/ampcmd.zsh"
     libexec.install "src/ampcmd.plugin.zsh"
     libexec.install "src/ampcmd.bash"
     libexec.install "src/ampcmd.fish"
     libexec.install "src/ampcmd-preview.sh"
-
-    # Install wrapper as executable
     bin.install "bin/ampcmd"
   end
 
