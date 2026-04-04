@@ -38,9 +38,11 @@ class Ampcmd < Formula
   end
 
   test do
+    assert_path_exists libexec/"ampcmd.zsh"
     assert_path_exists libexec/"ampcmd.plugin.zsh"
     assert_path_exists libexec/"ampcmd.bash"
     assert_path_exists libexec/"ampcmd.fish"
+    assert_path_exists libexec/"ampcmd-preview.sh"
     assert_path_exists bin/"ampcmd"
   end
 end
