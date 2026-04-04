@@ -46,6 +46,18 @@ bind \ch 'ampcmd'
 
 Then reload your shell: `exec $SHELL`
 
+## Uninstallation
+
+```bash
+brew uninstall ampcmd
+brew untap soundslikeinfo/ampcmd
+```
+
+Remove the shell configuration lines you added to:
+- `~/.zshrc` (zsh)
+- `~/.bashrc` (bash)
+- `~/.config/fish/config.fish` (fish)
+
 ## License
 
 MIT License - see [soundslikeinfo/ampcmd](https://github.com/soundslikeinfo/ampcmd) for details.
