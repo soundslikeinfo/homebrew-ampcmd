@@ -8,26 +8,32 @@ class Ampcmd < Formula
 
   depends_on "fzf"
 
-  def install
-    prefix.install "src/ampcmd.zsh"
-    prefix.install "src/ampcmd.plugin.zsh"
-    prefix.install "src/ampcmd.bash"
-    prefix.install "src/ampcmd.fish"
-    prefix.install "src/ampcmd-preview.sh"
+def install
+    # Install shell scripts to libexec (private)
+    libexec.install "src/ampcmd.zsh"
+    libexec.install "src/ampcmd.plugin.zsh"
+    libexec.install "src/ampcmd.bash"
+    libexec.install "src/ampcmd.fish"
+    libexec.install "src/ampcmd-preview.sh"
+    
+    # Install wrapper as executable
+    bin.install "bin/ampcmd"
   end
 
   def caveats
     <<~EOS
-      Add to your shell config:
+      ampcmd is now available as a command!
+      
+      For shell integration (CTRL-H keybinding), add to your config:
       
       Zsh (~/.zshrc):
-        source #{opt_prefix}/ampcmd.plugin.zsh
+        source #{opt_libexec}/ampcmd.plugin.zsh
       
       Bash (~/.bashrc):
-        source #{opt_prefix}/ampcmd.bash
+        source #{opt_libexec}/ampcmd.bash
       
       Fish (~/.config/fish/config.fish):
-        source #{opt_prefix}/ampcmd.fish
+        source #{opt_libexec}/ampcmd.fish
         bind \\ch 'ampcmd'
       
       Then: exec $SHELL
@@ -35,8 +41,9 @@ class Ampcmd < Formula
   end
 
   test do
-    assert_path_exists prefix/"ampcmd.plugin.zsh"
-    assert_path_exists prefix/"ampcmd.bash"
-    assert_path_exists prefix/"ampcmd.fish"
+    assert_path_exists libexec/"ampcmd.plugin.zsh"
+    assert_path_exists libexec/"ampcmd.bash"
+    assert_path_exists libexec/"ampcmd.fish"
+    assert_path_exists bin/"ampcmd"
   end
 end
