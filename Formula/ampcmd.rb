@@ -8,14 +8,14 @@ class Ampcmd < Formula
 
   depends_on "fzf"
 
-def install
+  def install
     # Install shell scripts to libexec (private)
     libexec.install "src/ampcmd.zsh"
     libexec.install "src/ampcmd.plugin.zsh"
     libexec.install "src/ampcmd.bash"
     libexec.install "src/ampcmd.fish"
     libexec.install "src/ampcmd-preview.sh"
-    
+
     # Install wrapper as executable
     bin.install "bin/ampcmd"
   end
@@ -23,19 +23,19 @@ def install
   def caveats
     <<~EOS
       ampcmd is now available as a command!
-      
+
       For shell integration (CTRL-H keybinding), add to your config:
-      
+
       Zsh (~/.zshrc):
         source #{opt_libexec}/ampcmd.plugin.zsh
-      
+
       Bash (~/.bashrc):
         source #{opt_libexec}/ampcmd.bash
-      
+
       Fish (~/.config/fish/config.fish):
         source #{opt_libexec}/ampcmd.fish
         bind \\ch 'ampcmd'
-      
+
       Then: exec $SHELL
     EOS
   end
