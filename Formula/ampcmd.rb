@@ -1,8 +1,8 @@
 class Ampcmd < Formula
   desc "Chain multiple shell history commands using fuzzy selection"
   homepage "https://github.com/soundslikeinfo/ampcmd"
-  url "https://github.com/soundslikeinfo/ampcmd/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "f0ef98f4442bf3ebc0f90c6d2e24966880bcaabdf0041fb2cb8936fcde073a9e"
+  url "https://github.com/soundslikeinfo/ampcmd/archive/refs/tags/v0.1.10.tar.gz"
+  sha256 "16605061b7f0b2dd29556a538eb0ba04ed5b22230d722acecdadccf5abb0008a"
   license "MIT"
   head "https://github.com/soundslikeinfo/ampcmd.git", branch: "main"
 
